@@ -1,0 +1,95 @@
+body {
+  font-size: 12pt;
+  font-family: 'open_sansregular',Arial,Helvetica,sans-serif;
+  width: 80%;
+}
+.noid {
+  width: 80%;
+  border: 1px solid black;
+  background-color: #ffcccc;
+  margin: auto;
+  padding: 0px 1em 0px 1em;
+}
+
+p {
+ padding: 1em 0px 0px 0px;
+}
+.header {
+	background-color: #cc88ff;
+	h1 {
+		font-size: 2em;
+	}
+	h2 {
+		font-size: 1.5em;
+	}
+}
+.intro {
+	width: 80%;
+}
+.status {
+	width: 80%;
+	.tablediv {
+		margin: auto;
+		width: 80%;
+		padding: 1em 0px 1em 0px;
+	}
+	table {
+		margin: auto;
+		width: 80%;
+	}
+	tr {
+		border: 1px solid black;
+	}
+	td {
+		border: 1px solid black;
+	}
+}
+
+.expirenow {
+	width: 60%;
+	margin: auto;
+	td {
+		padding: 0px 15px 0px 0px;
+	}
+	.actionbutton {
+		background-color: #ffcccc;
+		font-size: 1.3em;
+	}
+	.cancelbutton {
+		background-color: #cccccc;
+		font-size: 1.3em;
+	}
+}
+
+.renewnow {
+	width: 60%;
+	margin: auto;
+	td {
+		padding: 0px 15px 0px 0px;
+	}
+	.actionbutton {
+		background-color: #ccffcc;
+		font-size: 1.3em;
+	}
+	.cancelbutton {
+		background-color: #cccccc;
+		font-size: 1.3em;
+	}
+}
+
+.reopen {
+	width: 60%;
+	margin: auto;
+	td {
+		padding: 0px 15px 0px 0px;
+	}
+	.actionbutton {
+		background-color: #ffffcc;
+		font-size: 1.3em;
+	}
+	.cancelbutton {
+		background-color: #cccccc;
+		font-size: 1.3em;
+	}
+}
+		

@@ -1,0 +1,15 @@
+ServerName https://${COMANAGE_REGISTRY_VIRTUAL_HOST_FQDN}:443
+
+DocumentRoot /var/www/html
+
+RedirectMatch ^/$ /registry/
+
+LogLevel warn
+
+Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
+Header always set Content-Security-Policy "frame-ancestors 'self';"
+
+SSLEngine on
+SSLProtocol all -TLSv1 -TLSv1.1 -SSLv2 -SSLv3
+SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
+SSLHonorCipherOrder on

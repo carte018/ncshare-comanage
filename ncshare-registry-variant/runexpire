@@ -1,0 +1,1 @@
+35 19 * * * root cd /srv/comanage-registry/app; sudo -u apache PATH=$PATH:/usr/local/bin ./Console/cake job CoreJob.Expire -s --coid 2 > /tmp/expirejob.out 2>&1
