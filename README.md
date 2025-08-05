@@ -28,4 +28,14 @@ The ncshare-registry-variant directory herein contains instructions for building
 
 * The identity lifecycle for COmanage-managed identities.  NCShare implements a policy requiring users at participating institutions to re-attest to their use of NCShare resources on an annual basis, and there are custom code additions to support automating the process of notifying users prior to their identities expiring and providing self-service re-attestation facilities for end-users.
 
- 
+# SAML Discovery
+
+Because many North Carolina schools (particularly those that are not Carnegie R1 schools) are not participants in the nationwide R&E federation (InCommon), NCShare has to provide some federation support services locally.  These include a SAML discovery service.
+
+NCShare uses the thiss.io (THe Identity Selector Software) discovery service that underlies the RA21/SeamlessAccess discovery service to provide SAML IDP discovery for end users. That service deploys as two distinct docker containers -- one running a JSON-only MDQ service for publishing metadata references for participating IDPs and relying parties, and one running the actual DS software.
+
+The NCShare discovery service imports the full set of InCommon (and, by extension, eduGain) metadata, converting it to JSON references, then extends it with JSON metadata references for the North Carolina schools' IDPs that are not part of InCommon.  The aggregate allows users at any participating NC school to select their home IDPs at the discovery service.
+
+# NCShare Customizations to thiss.io DS
+
+Because some of the commercial SAML providers used by NC schools (eg., Okta) vary their IDP metadata depending on the relying party they're integrating with, NCShare runs a slightly modified version of the thiss.io MDQ service.  The modification addresses the need to apply "additive" tags to JSON metadata for IDPs in order to control which presentation of these "faceted" IDPs should be used when accessing which NCShare federated services.  The ncshare-thiss-mdq directory contains both a patch to the thiss-mdq distribution's metadata.js code and a Python script for performing the aggregation and conversion of IDP metadata from InCommon and the non-InCommon schools into JSON, suitable for use with the thiss.io discovery service. 

@@ -1,0 +1,18 @@
+--- metadata.js.orig    2025-03-31 10:27:20
++++ metadata.js 2025-03-31 10:28:08
+@@ -305,6 +302,15 @@
+                         } else if ((!e.include) && !entity[e.match].includes(e.select)) {
+                             passed += 1;
+                         }
++                   } else if (e.match === 'keywords') {
++                           // keywords is a space-separated string of keywords to check
++                           let re = '(^|\\s)'+e.select+'($|\\s)';
++                           let regex = new RegExp(re);
++                           if (e.include && regex.test(entity[e.match])) {
++                                   passed += 1;
++                           } else if ((!e.include) && regex.test(entity[e.match])) {
++                                   passed += 1;
++                           }
+                     } else {
+                         if (e.include && entity[e.match] === e.select) {
+                             passed += 1;
